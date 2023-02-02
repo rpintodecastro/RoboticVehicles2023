@@ -3,7 +3,7 @@
 """
 ME290: Robotic Vehicles
 
-Kinematic Single Track Model
+Dynamic Single Track Model
 
 """
 

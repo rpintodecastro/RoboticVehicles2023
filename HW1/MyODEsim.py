@@ -16,8 +16,8 @@ class Sim:
     
     def simulate_euler(self, f_dot, x0, u, Tsample):
         """
-        Simulate system dynamics 
-            x_dot = f_dot(x,u)
+        Simulate system dynamic using Euler discretization
+        Continuous time model:  x_dot = f_dot(x,u)
             
         Inputs:
         ----------

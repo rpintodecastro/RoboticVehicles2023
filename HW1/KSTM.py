@@ -4,10 +4,11 @@
 UC Merced
 ME290: Robotic Vehicles
 
-Implement Kinematic Single Track Model
+Template for "Kinematic Single Track Model"
 
 """
 
+# Import relevant libraries
 import numpy as np
 import matplotlib.pyplot as plt
 import math 
@@ -24,20 +25,20 @@ class KSTModel:
         
     def f_dot(self, x, u):
         """
-        Implements the right hand side of 
+        Implements  right hand side of 
             x_dot - f_dot(x,u)
             
         Inputs: 
         -------------    
-        x : np.array of system state  with shape 1xNSTATE
-        u : np.array of system input with shape 1xNINPUTS
+        x : np.array,  system state  with shape 1xNSTATE
+        u : np.array,  input steering angle with shape 1x1
             
         Returns: 
         --------------
-        x_dot : np.array of the field of the system with shape 1xNSTATES
+        x_dot : np.array of the vector field of the system with shape 1xNSTATES
         """
-        X = x[0];    # extract global X position
-        Y = x[1];    # extract global Y position
+        X = x[0];    #  X position
+        Y = x[1];    # Y position
         psi = x[2]   # extract yaw angle
         vx = self.V  # longitudinal velocity 
         vy = 0       # lateral velocity 
@@ -46,7 +47,6 @@ class KSTModel:
         #*************************
         # !!!!!!!! TODO !!!!!!
         #*************************
-        
         X_dot = 0;
         Y_dot = 0;   
         Psi_dot = 0 
@@ -65,7 +65,6 @@ if __name__ == "__main__":
     # check right hand side of x_dot  = f_dot(x,u)    
     x0= np.array( [0, 0, 0]);    # initial state [X, Y, psi]
     u = np.array([u_const])      # steering angle
-    print(kstm.f_dot(x0, u))
     
     # ***** Simulate KSTM  *****    
     Tsample = 0.01 # [s] sampling time for discretization of vehicle model   
