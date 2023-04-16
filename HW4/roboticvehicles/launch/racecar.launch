@@ -1,0 +1,17 @@
+<launch>
+
+
+  <!-- Open the model file -->
+  <arg name="racecar_xacro" default="$(find roboticvehicles)/urdf/racecar.xacro"/>
+  <!--<param name="tf_prefix" value="racecar"/>-->
+  <param name="robot_description" command="xacro --inorder '$(arg racecar_xacro)'"/>
+  <!-- Add the transformations -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <!-- auxiliary functions -->
+  <node name="utils" pkg="roboticvehicles" type="utils.py" />
+
+  <!--  visualization of mobile robot-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find roboticvehicles)/rviz/racecarView.rviz" />
+
+</launch>
